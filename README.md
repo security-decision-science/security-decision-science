@@ -1,9 +1,3 @@
-```md
-<p align="left">
-  <img src="docs/_static/logo.png" alt="Security Decision Science" height="64">
-</p>
-```
-
 # Security Decision Science
 
 _Free notebooks & a playground app for Monte Carlo, Bayesian updates, Survival Analysis, Causal basics — turning security data into **decisions**._
@@ -11,6 +5,7 @@ _Free notebooks & a playground app for Monte Carlo, Bayesian updates, Survival A
 [![Docs](https://github.com/security-decision-science/security-decision-science/actions/workflows/book.yml/badge.svg)](https://github.com/security-decision-science/security-decision-science/actions/workflows/book.yml)
 [![PyPI](https://img.shields.io/pypi/v/decision-security?label=decision-security&include_prereleases)](https://pypi.org/project/decision-security/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/voiculaura/)](https://www.linkedin.com/in/voiculaura/)
 
 **Live docs:** https://security-decision-science.github.io/security-decision-science/
 
