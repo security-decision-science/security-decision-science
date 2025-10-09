@@ -15,5 +15,6 @@ html:
   use_issues_button: true
   use_edit_page_button: true
   favicon: null
+  logo: _static/logo.png
   extra_navbar: ""          # keep clean
   extra_footer: ""          # add LinkedIn later
