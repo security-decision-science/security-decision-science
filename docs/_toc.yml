@@ -1,6 +1,6 @@
 format: jb-book
 root: index
 chapters:
-  - file: week1-01-research-mindset
-  - file: week1-02-operationalization-metrics
-  - file: week1-03-experimental-design-basics
+  - file: part1-01-research-mindset
+  - file: part1-02-operationalization-metrics
+  - file: part1-03-experimental-design-basics
