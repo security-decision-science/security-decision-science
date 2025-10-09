@@ -1,0 +1,19 @@
+title: Security Decision Science
+author: Laura Voicu
+only_build_toc_files: true
+
+execute:
+  execute_notebooks: "off"
+
+repository:
+  url: https://github.com/security-decision-science/security-decision-science
+  branch: main
+  path_to_book: docs
+
+html:
+  use_repository_button: true
+  use_issues_button: true
+  use_edit_page_button: true
+  favicon: null
+  extra_navbar: ""          # keep clean
+  extra_footer: ""          # add LinkedIn later
