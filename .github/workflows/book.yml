@@ -23,7 +23,7 @@ jobs:
       - run: python -m pip install -U pip jupyter-book
       - run: jupyter-book build docs
       - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: docs/_build/html
   deploy:
