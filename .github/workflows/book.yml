@@ -21,9 +21,20 @@ jobs:
       - name: Harden runner
         uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1 (pinned)
 
-      - name: Checkout
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4 (pinned)
+      - name: Checkout (pin to commit SHA)
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.sha }}     # avoids pull/merge ref flakiness
+          fetch-depth: 1
 
+      # If the previous step failed due to a transient network blip, try once more
+      - name: Retry checkout (once)
+        if: failure()
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0             # fuller fetch on retry
+          
       # Avoid Scorecard's pipCommand warning by not using pip directly.
       # pipx installs the exact version and runs it in an isolated venv.
       - name: Install jupyter-book (pinned version) via pipx
