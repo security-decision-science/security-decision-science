@@ -59,13 +59,14 @@ jobs:
           git add -A
           git commit -m "Archive checkout (fallback)"
 
-      - name: Set up Python
-        uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6
-        with:
-          python-version: "3.12"
-
-      - name: Install Jupyter Book
-        run: python -m pip install -U pip jupyter-book
+      - name: Install pipx + jupyter-book (pinned)
+        run: |
+          set -euxo pipefail
+          sudo apt-get update
+          sudo apt-get install -y pipx
+          pipx ensurepath
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+          pipx install jupyter-book==1.0.4.post1
 
       - name: Build book
         run: jupyter-book build docs
