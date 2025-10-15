@@ -33,10 +33,13 @@ jobs:
           python -m pip install -U pip
           python -m pip install pre-commit jupyter-book
 
-      - name: Run pre-commit on all files
+      # Run only "manual" stage hooks in CI.
+      # Hooks that modify files (EOF fixer, trailing whitespace, nbstripout) are limited to the "commit" stage,
+      # so they won't run here and CI won't fail due to uncommitted changes.
+      - name: Run pre-commit (CI-safe)
         run: |
           pre-commit install-hooks
-          pre-commit run --all-files
+          pre-commit run --all-files --hook-stage manual --show-diff-on-failure
 
       - name: Validate Jupyter Book builds
         run: |
