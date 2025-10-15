@@ -23,8 +23,7 @@ Project maintainers are responsible for clarifying and enforcing our standards.
 This Code applies within all project spaces (GitHub issues/PRs, discussions, etc.) and in public spaces when an individual is representing the project.
 
 ## Enforcement
-Report violations to **<REPLACE_WITH_CONTACT_EMAIL_OR_GH_USERNAME>**.
-If email is not available, open a **private** report via **Security → Report a vulnerability** or contact the maintainer via their GitHub profile.
+Open a **private** report via **Security → Report a vulnerability** or contact the maintainer via their GitHub profile.
 
 All complaints will be reviewed and investigated fairly and promptly.
 
