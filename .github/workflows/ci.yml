@@ -23,19 +23,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
 
-      - name: Set up Python
-        uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6
-        with:
-          python-version: "3.12"
-
-      - name: Install tooling
+      - name: Install pipx + tools (pinned)
         run: |
-          python -m pip install -U pip
-          python -m pip install pre-commit jupyter-book
+          set -euxo pipefail
+          sudo apt-get update
+          sudo apt-get install -y pipx
+          pipx ensurepath
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+          pipx install pre-commit==4.3.0
+          pipx install jupyter-book==1.0.4.post1
 
-      # Run only "manual" stage hooks in CI.
-      # Hooks that modify files (EOF fixer, trailing whitespace, nbstripout) are limited to the "commit" stage,
-      # so they won't run here and CI won't fail due to uncommitted changes.
+      # Run only non-mutating checks in CI; mutating hooks run locally (pre-commit stage).
       - name: Run pre-commit (CI-safe)
         run: |
           pre-commit install-hooks
