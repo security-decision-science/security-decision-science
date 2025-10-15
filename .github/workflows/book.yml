@@ -2,7 +2,7 @@ name: Build & Deploy Jupyter Book
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "main" ]
   workflow_dispatch:
 
 permissions:
@@ -18,27 +18,28 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      # Make git more tolerant of slow/flaky networks
       GIT_HTTP_LOW_SPEED_LIMIT: "1000"
       GIT_HTTP_LOW_SPEED_TIME: "60"
 
     steps:
-      # 1) Try a normal checkout pinned to the exact commit
+      - name: Harden runner
+        uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
+        with:
+          egress-policy: audit
+
       - name: Checkout (git)
-        uses: actions/checkout@v5
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
         with:
           ref: ${{ github.sha }}
           fetch-depth: 1
 
-      # 2) If that fails, retry with a full fetch once
       - name: Retry checkout (full fetch)
         if: failure()
-        uses: actions/checkout@v5
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
         with:
           ref: ${{ github.sha }}
           fetch-depth: 0
 
-      # 3) Last-resort fallback: download repo archive via API (no git needed)
       - name: Fallback download source archive
         if: failure()
         env:
@@ -52,7 +53,6 @@ jobs:
             "$URL" -o src.tgz
           mkdir -p "$GITHUB_WORKSPACE"
           tar -xzf src.tgz --strip-components=1 -C "$GITHUB_WORKSPACE"
-          # Recreate a minimal git repo so later steps that expect git don't break
           git init
           git config user.email "actions@github.com"
           git config user.name "github-actions"
@@ -60,7 +60,7 @@ jobs:
           git commit -m "Archive checkout (fallback)"
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@e797f83bcb11b83ae66e0230d6156d7c80228e7c # v6
         with:
           python-version: "3.12"
 
@@ -71,10 +71,10 @@ jobs:
         run: jupyter-book build docs
 
       - name: Configure Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
         with:
           path: docs/_build/html
 
@@ -85,5 +85,10 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Harden runner
+        uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
+        with:
+          egress-policy: audit
+
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4
