@@ -52,7 +52,7 @@ jobs:
       security-events: write   # confined to this job only
     steps:
       - name: Checkout (required for fingerprinting)
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11  # v4
+        uses: actions/checkout@ff7abcd0c3c05ccf6adc123a8cd1fd4fb30fb493  # v4
 
       - name: Download SARIF artifact
         uses: actions/download-artifact@f44cd7b40bfd40b6aa1cc1b9b5b7bf03d3c67110 # v4
