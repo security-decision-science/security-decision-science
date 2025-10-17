@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://security-decision-science.github.io/security-decision-science/sitemap.xml
