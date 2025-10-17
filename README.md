@@ -4,7 +4,6 @@ _Free notebooks & a playground app for Monte Carlo, Bayesian updates, Survival A
 
 [![Docs](https://github.com/security-decision-science/security-decision-science/actions/workflows/book.yml/badge.svg)](https://github.com/security-decision-science/security-decision-science/actions/workflows/book.yml)
 [![PyPI](https://img.shields.io/pypi/v/decision-security?label=decision-security&include_prereleases)](https://pypi.org/project/decision-security/)
-[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/security-decision-science/security-decision-science/badge)](https://scorecard.dev/viewer/?uri=github.com/security-decision-science/security-decision-science) 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/voiculaura/)](https://www.linkedin.com/in/voiculaura/)
 
