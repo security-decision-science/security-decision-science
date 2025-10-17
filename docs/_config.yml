@@ -24,6 +24,7 @@ sphinx:
     html_baseurl: "https://security-decision-science.github.io/security-decision-science/"
     extensions:
       - sphinx_sitemap
+      - sphinxext.opengraph
     ogp_site_url: "https://security-decision-science.github.io/security-decision-science/"
     ogp_site_name: "Security Decision Science"
     ogp_description_length: 200
