@@ -1,37 +1,60 @@
-name: Bug report
-description: File a bug report
-labels: [bug]
+name: Bug report (docs/site)
+description: Report a problem in the Jupyter Book site or docs content
+labels: [bug, docs]
 body:
+  - type: input
+    id: page
+    attributes:
+      label: Page URL or path
+      description: Link to the page (preferred) or the path under docs/
+      placeholder: https://security-decision-science.github.io/... or docs/part1-01-...
+    validations:
+      required: true
   - type: textarea
     id: what-happened
     attributes:
       label: What happened?
-      description: Also tell us what you expected to happen.
-      placeholder: A clear and concise description...
+      description: Include the exact error/broken section. What did you expect instead?
+      placeholder: A clear and concise description…
     validations:
       required: true
   - type: textarea
     id: repro
     attributes:
       label: Steps to reproduce
-      description: Minimal steps to reproduce the issue
-      placeholder: "1. Go to ...\n2. Run ...\n3. See error ..."
-  - type: input
-    id: version
+      description: Minimal steps to see the issue
+      placeholder: |
+        1. Go to page…
+        2. Click…
+        3. See…
+  - type: textarea
+    id: broken-link
     attributes:
-      label: Version / commit
-      description: Git SHA or release/tag (if any)
+      label: Broken link (if relevant)
+      description: Paste the exact broken URL and where it appears on the page
+  - type: textarea
+    id: logs
+    attributes:
+      label: Build failure or console logs (if any)
+      description: If the GitHub Action failed, paste the run URL and the error
+      placeholder: https://github.com/.../actions/runs/<id>
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Screenshot
+      description: Drag-and-drop an image showing the issue
+  - type: input
+    id: commit
+    attributes:
+      label: Commit or release
+      description: Git SHA or tag (if known)
+      placeholder: e.g. 0cafe42 or v0.1.0a9
   - type: dropdown
     id: area
     attributes:
       label: Area
       options:
-        - app
-        - CI/CD (GitHub Actions)
         - docs
+        - linkcheck
+        - site (theme/layout)
         - other
-  - type: textarea
-    id: logs
-    attributes:
-      label: Relevant logs
-      render: shell
