@@ -1,14 +1,33 @@
 name: Link Check
+
 on:
-  schedule: [{ cron: "23 3 * * *" }]
+  schedule: [{ cron: "23 3 * * *" }]  # runs daily at 03:23 UTC
   workflow_dispatch: {}
+
+concurrency:
+  group: "link-check"
+  cancel-in-progress: true
 
 jobs:
   lychee:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read      # needed for actions/checkout
     steps:
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8
+      - name: Checkout
+        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+
       - name: Check links in docs
         uses: lycheeverse/lychee-action@f5adf1c3b7dabcab0a58c9b2db3b51cc8d0b7f2d
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   # lets lychee auth to GitHub
         with:
-          args: --no-progress --require-https --max-concurrency 8 docs
+          # tweak as you like; --base allows relative links to resolve
+          args: >-
+            --no-progress
+            --require-https
+            --max-concurrency 8
+            --accept 200,206
+            --exclude-file .lycheeignore
+            --base docs
+            docs
