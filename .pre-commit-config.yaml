@@ -1,25 +1,36 @@
-# CI will run the "manual" stage. Hooks that MODIFY files run only at "commit" (local),
-# so CI won't fail because it can't commit the changes.
+# .pre-commit-config.yaml
 repos:
   - repo: https://github.com/kynan/nbstripout
-    rev: 0.6.1
+    rev: 0.7.1
     hooks:
+      # modifies files → only at local pre-commit
       - id: nbstripout
-        stages: [commit]  # modify locally; skipped in CI (manual)
+        stages: [pre-commit]
+        files: \.ipynb$
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.6.0
     hooks:
+      # read-only checks → run locally and in CI
       - id: detect-private-key
-        stages: [commit, manual]
+        stages: [pre-commit, manual]
       - id: check-added-large-files
         args: ["--maxkb=1000"]
-        stages: [commit, manual]
+        stages: [pre-commit, manual]
       - id: end-of-file-fixer
-        stages: [commit]  # modify locally; skipped in CI
+        stages: [pre-commit]     # modifies files, so not in CI
       - id: trailing-whitespace
-        stages: [commit]  # modify locally; skipped in CI
+        stages: [pre-commit]     # modifies files, so not in CI
       - id: check-yaml
-        stages: [commit, manual]
+        stages: [pre-commit, manual]
       - id: check-json
-        stages: [commit, manual]
+        stages: [pre-commit, manual]
+
+# Don’t scan generated stuff
+exclude: |
+  (?x)
+  ^docs/_build/|
+  ^dist/|
+  ^site/|
+  \.sigstore\.json$|
+  \.intoto\.jsonl$
