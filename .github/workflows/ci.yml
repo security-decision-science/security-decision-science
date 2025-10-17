@@ -36,8 +36,7 @@ jobs:
       # Run only non-mutating checks in CI; mutating hooks run locally (pre-commit stage).
       - name: Run pre-commit (CI-safe)
         run: |
-          pre-commit install-hooks
-          pre-commit run --all-files --hook-stage manual --show-diff-on-failure
+          pre-commit run --all-files --hook-stage manual 
 
       - name: Validate Jupyter Book builds
         run: |
