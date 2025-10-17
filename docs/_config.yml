@@ -14,8 +14,8 @@ html:
   use_repository_button: true
   use_issues_button: true
   use_edit_page_button: true
-  favicon: _static/logo-180.png      # 
-  logo: _static/logo.png             # 
+  favicon: _static/logo-180.png
+  logo: _static/logo-180.png
   extra_navbar: ""
   extra_footer: ""
   extra_head: |
@@ -24,16 +24,18 @@ html:
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Security Decision Science" />
     <meta name="twitter:description" content="Turn security data into decisions: Monte Carlo, Bayes, Survival, Causal." />
+    <meta property="og:title" content="Security Decision Science" />
+    <meta property="og:description" content="Turn security data into decisions: Monte Carlo, Bayes, Survival, Causal." />
     <link rel="canonical" href="https://security-decision-science.github.io/security-decision-science/" />
 
 sphinx:
+  extra_extensions:
+    - sphinx_sitemap
+    - sphinxext.opengraph
   config:
     html_baseurl: "https://security-decision-science.github.io/security-decision-science/"
-    extensions:
-      - sphinx_sitemap
-      - sphinxext.opengraph
     ogp_site_url: "https://security-decision-science.github.io/security-decision-science/"
     ogp_site_name: "Security Decision Science"
     ogp_description_length: 200
-    ogp_image: "_static/og-card.png"   # 1200×630 card in docs/_static/
+    ogp_image: "https://security-decision-science.github.io/security-decision-science/_static/og-card.png"
     ogp_type: "website"
