@@ -1,4 +1,4 @@
-name: CI
+name: CI (lint)
 
 on:
   push:
@@ -11,7 +11,7 @@ permissions:
   contents: read
 
 jobs:
-  lint-and-build:
+  lint:
     runs-on: ubuntu-latest
 
     steps:
@@ -23,37 +23,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
 
-      - name: Install Jupyter Book + Sphinx extras
+      - name: Install pre-commit via pipx
         run: |
           set -euxo pipefail
           sudo apt-get update
           sudo apt-get install -y pipx
           pipx ensurepath
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+          pipx install pre-commit==4.0.1
 
-          # Install into a persistent pipx venv
-          pipx install jupyter-book==1.0.4.post1
-          # Install the extensions into THAT SAME venv
-          pipx runpip jupyter-book install --upgrade \
-            sphinx-sitemap==2.6.0 \
-            sphinxext-opengraph==0.9.1
-
-          # Sanity: verify imports from that venv
-          /opt/pipx/venvs/jupyter-book/bin/python - <<'PY'
-          import importlib
-          for m in ("sphinx","sphinx_sitemap","sphinxext.opengraph"):
-              importlib.import_module(m)
-          print("extensions import OK")
-          PY
-
-      - name: Build book (keep-going)
-        run: /opt/pipx/venvs/jupyter-book/bin/jupyter-book build --keep-going docs
-
-      # Run only non-mutating checks in CI; mutating hooks run locally (pre-commit stage).
-      - name: Run pre-commit (CI-safe)
-        run: |
-          pre-commit run --all-files --hook-stage manual 
-
-      - name: Validate Jupyter Book builds
-        run: |
-          jupyter-book build --keep-going docs
+      - name: Run pre-commit (CI-safe / manual hooks)
+        run: pre-commit run --all-files --hook-stage manual
