@@ -4,6 +4,7 @@ _Free notebooks & a playground app for Monte Carlo, Bayesian updates, Survival A
 
 [![Docs](https://github.com/security-decision-science/security-decision-science/actions/workflows/book.yml/badge.svg)](https://github.com/security-decision-science/security-decision-science/actions/workflows/book.yml)
 [![PyPI](https://img.shields.io/pypi/v/decision-security?label=decision-security&include_prereleases)](https://pypi.org/project/decision-security/)
+[![Link Check](https://github.com/security-decision-science/security-decision-science/actions/workflows/links.yml/badge.svg)](https://github.com/security-decision-science/security-decision-science/actions/workflows/links.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/voiculaura/)](https://www.linkedin.com/in/voiculaura/)
 
@@ -45,7 +46,7 @@ These set up metrics & scaffolding reused in later modules.
 3. **Experiment designs you can actually run**  
    A/B, switchback, staggered; threats to validity; minimal “ship/no-ship” rule.
 
-_Read them in the left sidebar, or start at the [landing page](./docs/index.md)._
+_Read them in the left sidebar, or start at the [landing page](https://security-decision-science.github.io/security-decision-science/)._
 
 > Next: **Part 2** (Monte Carlo risk bands) → **Part 3** (Bayesian triage) → **Part 4** (Survival).
 

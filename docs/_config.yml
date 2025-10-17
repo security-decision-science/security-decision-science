@@ -18,3 +18,26 @@ html:
   logo: _static/logo.png
   extra_navbar: ""          # keep clean
   extra_footer: ""          # add LinkedIn later
+
+sphinx:
+  config:
+    html_baseurl: "https://security-decision-science.github.io/security-decision-science/"
+    extensions:
+      - sphinx_sitemap
+      - sphinxext.opengraph
+    ogp_site_url: "https://security-decision-science.github.io/security-decision-science/"
+    ogp_site_name: "Security Decision Science"
+    ogp_description_length: 200
+    ogp_image: "https://security-decision-science.github.io/security-decision-science/_static/og-card.png"  # add later
+    ogp_type: "website"
+
+html:
+  extra_head: |
+    <meta name="description" content="Free notebooks, articles, and a playground app for Monte Carlo, Bayesian updates, Survival analysis, and causal basics in security." />
+    <meta name="keywords" content="security, risk, decision science, monte carlo, bayes, survival analysis, causal inference" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Security Decision Science" />
+    <meta name="twitter:description" content="Turn security data into decisions: Monte Carlo, Bayes, Survival, Causal." />
+    <meta property="og:title" content="Security Decision Science" />
+    <meta property="og:description" content="Turn security data into decisions: Monte Carlo, Bayes, Survival, Causal." />
+    <link rel="canonical" href="https://security-decision-science.github.io/security-decision-science/" />

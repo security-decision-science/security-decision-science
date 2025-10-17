@@ -1,0 +1,14 @@
+name: Link Check
+on:
+  schedule: [{ cron: "23 3 * * *" }]
+  workflow_dispatch: {}
+
+jobs:
+  lychee:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8
+      - name: Check links in docs
+        uses: lycheeverse/lychee-action@f5adf1c3b7dabcab0a58c9b2db3b51cc8d0b7f2d
+        with:
+          args: --no-progress --require-https --max-concurrency 8 docs
