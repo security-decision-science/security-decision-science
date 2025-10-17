@@ -67,6 +67,16 @@ jobs:
           pipx ensurepath
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
           pipx install jupyter-book==1.0.4.post1
+          pipx runpip jupyter-book install \
+          sphinx-sitemap==2.6.0 \
+          sphinxext-opengraph==0.9.1
+
+          # (optional) sanity-check imports
+          python - <<'PY'
+          import importlib.util as I
+          for m in ("sphinx_sitemap","sphinxext.opengraph"):
+              print(m, "OK" if I.find_spec(m) else "MISSING")
+          PY
 
       - name: Build book
         run: jupyter-book build docs
