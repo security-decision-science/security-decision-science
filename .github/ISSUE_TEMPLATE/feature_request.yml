@@ -1,21 +1,44 @@
-name: Feature request
-description: Suggest an idea for this project
-labels: [enhancement]
+name: Feature request (docs/site)
+description: Suggest a docs page improvement or a new section
+labels: [enhancement, docs]
 body:
+  - type: input
+    id: page
+    attributes:
+      label: Target page (URL or path)
+      description: If this enhances an existing page, link it
   - type: textarea
     id: problem
     attributes:
-      label: Problem
-      description: Is your feature request related to a problem?
+      label: Problem / reader need
+      description: What confusion or gap should this solve?
+      placeholder: Readers struggle with…
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired learning outcome
+      description: After reading, the reader should be able to…
+      placeholder: e.g., simulate a Poisson–lognormal loss band; interpret KM curves; choose prior…
+    validations:
+      required: true
   - type: textarea
     id: solution
     attributes:
       label: Proposed solution
-  - type: textarea
-    id: alt
+      description: Outline of sections, examples, figures, or a notebook to add
+  - type: dropdown
+    id: part
     attributes:
-      label: Alternatives considered
+      label: Where does it fit?
+      options:
+        - Part 1 (Foundations)
+        - Part 2 (Monte Carlo)
+        - Part 3 (Bayes)
+        - Part 4 (Survival)
+        - New Part
   - type: textarea
     id: extra
     attributes:
-      label: Additional context
+      label: Additional context / references
