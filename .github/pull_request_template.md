@@ -1,23 +1,15 @@
 ## Summary
-<!-- What does this change do? Why? -->
+What does this change? Why is it helpful?
 
-## Type of change
-- [ ] Fix
-- [ ] Feature
-- [ ] CI/CD
-- [ ] Docs
-- [ ] Chore
+## Pages touched
+- [ ] docs/index.md
+- [ ] docs/part1-01-...
+- [ ] Other: …
 
-## How tested?
-<!-- Describe tests or steps to verify -->
-
-## Security / Supply-chain considerations
-- [ ] No new network egress or secrets
-- [ ] Actions pinned by commit SHA (if edited workflows)
-- [ ] Dependencies reviewed (if added/changed)
+## Screenshots / before–after (optional)
+<!-- drag images -->
 
 ## Checklist
-- [ ] Linked related issue(s)
-- [ ] Updated docs/tests where appropriate
-- [ ] I have read the [Contributing Guide](../CONTRIBUTING.md)
-- [ ] I agree to follow the [Code of Conduct](../CODE_OF_CONDUCT.md)
+- [ ] Builds locally with `jupyter-book build docs`
+- [ ] No `docs/_build/` files committed
+- [ ] Links are absolute where needed (README), relative within docs
