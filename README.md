@@ -78,7 +78,7 @@ jupyter-book build docs
 open docs/_build/html/index.html
 ```
 
-Execution is off initially (`execute_notebooks: "off"` in `_config.yml`). Turn it on later when examples are stable.
+Execution is off initially (`execute_notebooks: "off"` in `_config.yml`). It will be turned on later when examples are stable.
 
 ---
 
