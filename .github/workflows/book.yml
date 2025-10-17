@@ -3,7 +3,12 @@ name: Build & Deploy Jupyter Book
 on:
   push:
     branches: [ "main" ]
-  workflow_dispatch:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 concurrency:
   group: "pages"
@@ -12,9 +17,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read        # checkout
-      pages: write          # required by actions/configure-pages
     env:
       GIT_HTTP_LOW_SPEED_LIMIT: "1000"
       GIT_HTTP_LOW_SPEED_TIME: "60"
@@ -31,32 +33,7 @@ jobs:
           ref: ${{ github.sha }}
           fetch-depth: 1
 
-      - name: Retry checkout (full fetch)
-        if: failure()
-        uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
-        with:
-          ref: ${{ github.sha }}
-          fetch-depth: 0
-
-      - name: Fallback download source archive
-        if: failure()
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          set -euxo pipefail
-          URL="https://api.github.com/repos/${{ github.repository }}/tarball/${{ github.sha }}"
-          curl -sSL --retry 5 --retry-delay 5 \
-            -H "Authorization: Bearer $GH_TOKEN" \
-            -H "Accept: application/vnd.github+json" \
-            "$URL" -o src.tgz
-          mkdir -p "$GITHUB_WORKSPACE"
-          tar -xzf src.tgz --strip-components=1 -C "$GITHUB_WORKSPACE"
-          git init
-          git config user.email "actions@github.com"
-          git config user.name "github-actions"
-          git add -A
-          git commit -m "Archive checkout (fallback)"
-
+      # Install Jupyter Book and required Sphinx extensions into the SAME venv
       - name: Install Jupyter Book + Sphinx extras
         run: |
           set -euxo pipefail
@@ -64,27 +41,13 @@ jobs:
           sudo apt-get install -y pipx
           pipx ensurepath
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
-
-          # Install into a persistent pipx venv
           pipx install jupyter-book==1.0.4.post1
-          # Install the extensions into THAT SAME venv
           pipx runpip jupyter-book install --upgrade \
             sphinx-sitemap==2.6.0 \
             sphinxext-opengraph==0.9.1
 
-          # Sanity: import from the same venv
-          /opt/pipx/venvs/jupyter-book/bin/python - <<'PY'
-          import importlib
-          for m in ["sphinx","sphinx_sitemap","sphinxext.opengraph"]:
-              importlib.import_module(m)
-          print("extensions import OK")
-          PY
-
-      - name: Build book
-        run: /opt/pipx/venvs/jupyter-book/bin/jupyter-book build docs
-
-      - name: Validate build (keep-going)
-        run: /opt/pipx/venvs/jupyter-book/bin/jupyter-book build --keep-going docs
+      - name: Build book (keep-going)
+        run: jupyter-book build --keep-going docs
 
       - name: Configure Pages
         uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
@@ -97,12 +60,10 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    permissions:
-      pages: write          # required by deploy-pages
-      id-token: write       # OIDC for Pages
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: Harden runner
         uses: step-security/harden-runner@f4a75cfd619ee5ce8d5b864b0d183aff3c69b55a # v2.13.1
