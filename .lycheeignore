@@ -1,0 +1,5 @@
+# dynamic / rate-limited sites
+https://twitter.com/*
+https://x.com/*
+https://www.linkedin.com/*
+https://pypi.org/simple/*
