@@ -64,14 +64,27 @@ jobs:
           sudo apt-get install -y pipx
           pipx ensurepath
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+          # Install into a persistent pipx venv
           pipx install jupyter-book==1.0.4.post1
+          # Install the extensions into THAT SAME venv
           pipx runpip jupyter-book install --upgrade \
             sphinx-sitemap==2.6.0 \
             sphinxext-opengraph==0.9.1
-          pipx run jupyter-book --version
 
-      - name: Build book (keep-going)
-        run: pipx run jupyter-book build --keep-going docs
+          # Sanity: import from the same venv
+          /opt/pipx/venvs/jupyter-book/bin/python - <<'PY'
+          import importlib
+          for m in ["sphinx","sphinx_sitemap","sphinxext.opengraph"]:
+              importlib.import_module(m)
+          print("extensions import OK")
+          PY
+
+      - name: Build book
+        run: /opt/pipx/venvs/jupyter-book/bin/jupyter-book build docs
+
+      - name: Validate build (keep-going)
+        run: /opt/pipx/venvs/jupyter-book/bin/jupyter-book build --keep-going docs
 
       - name: Configure Pages
         uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
