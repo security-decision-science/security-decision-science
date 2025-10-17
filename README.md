@@ -1,6 +1,6 @@
 # Security Decision Science
 
-_Free notebooks & a playground app for Monte Carlo, Bayesian updates, Survival Analysis, Causal basics — turning security data into **decisions**._
+_Free notebooks for Monte Carlo, Bayesian updates, Survival Analysis, Causal basics — turning security data into **decisions**._
 
 [![Docs](https://github.com/security-decision-science/security-decision-science/actions/workflows/book.yml/badge.svg)](https://github.com/security-decision-science/security-decision-science/actions/workflows/book.yml)
 [![PyPI](https://img.shields.io/pypi/v/decision-security?label=decision-security&include_prereleases)](https://pypi.org/project/decision-security/)
