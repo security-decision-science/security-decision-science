@@ -26,13 +26,9 @@ jobs:
 
       - name: Install pipx + Semgrep (pinned)
         run: |
-          set -euxo pipefail
-          sudo apt-get update
-          sudo apt-get install -y pipx
-          pipx ensurepath
-          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
-          pipx install semgrep==1.113.0
-          semgrep --version
+          python3 -m pip install --upgrade pip setuptools               
+          python3 -m pip install semgrep==1.113.0                       
+          semgrep --version 
 
       # Note: no --error flag; job will not fail on findings.
       - name: Run Semgrep and produce SARIF
