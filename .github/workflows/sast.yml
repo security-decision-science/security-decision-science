@@ -31,8 +31,7 @@ jobs:
           sudo apt-get install -y pipx
           pipx ensurepath
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
-          pipx install semgrep==1.83.0
-          pipx inject --force semgrep setuptools
+          pipx install semgrep==1.113.0
           semgrep --version
 
       # Note: no --error flag; job will not fail on findings.
