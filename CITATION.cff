@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this work, please cite it."
-title: "decision-security: decision-science utilities for security"
+title: "security-decision-science: notebooks and documentation for security decision science"
 authors:
   - family-names: Voicu
     given-names: Laura
@@ -8,13 +8,13 @@ authors:
 keywords:
   - cybersecurity
   - risk quantification
-  - monte carlo
-  - bayesian
+  - FAIR methodology
+  - monte carlo simulation
+  - bayesian inference
   - survival analysis
-  - value of information
-  - causal inference
+  - security decision science
 repository-code: "https://github.com/security-decision-science/security-decision-science"
 license: MIT
-version: "0.1.0a1"
+version: "0.1.0"
 date-released: "2025-10-09"
 doi: ""
