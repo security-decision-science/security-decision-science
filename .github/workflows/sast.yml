@@ -32,6 +32,7 @@ jobs:
           pipx ensurepath
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
           pipx install semgrep==1.83.0
+          pipx inject semgrep setuptools
           semgrep --version
 
       # Note: no --error flag; job will not fail on findings.
