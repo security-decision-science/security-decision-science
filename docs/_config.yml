@@ -16,8 +16,8 @@ html:
   use_edit_page_button: true
   favicon: _static/logo-180.png
   logo: _static/logo-180.png
-  extra_navbar: ""
-  extra_footer: ""
+  extra_navbar: '<a href="https://apropos-security.com">Apropos Security</a>'
+  extra_footer: 'Part of <a href="https://apropos-security.com">Apropos Security</a> · <a href="https://medium.com/apropos-security">Blog</a> · <a href="https://www.linkedin.com/in/voiculaura/">LinkedIn</a>'
   extra_head: |
     <meta name="description" content="Free notebooks, articles, and a playground app for Monte Carlo, Bayesian updates, Survival analysis, and causal basics in security." />
     <meta name="keywords" content="security, risk, decision science, monte carlo, bayes, survival analysis, causal inference" />

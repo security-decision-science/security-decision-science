@@ -1,6 +1,6 @@
 # Security Decision Science
 
-_Free notebooks for Monte Carlo, Bayesian updates, Survival Analysis, Causal basics — turning security data into **decisions**._
+_Free notebooks for Monte Carlo, Bayesian updates, Survival Analysis, Causal inference, Game Theory — turning security data into **decisions**._
 
 [![Docs](https://github.com/security-decision-science/security-decision-science/actions/workflows/book.yml/badge.svg)](https://github.com/security-decision-science/security-decision-science/actions/workflows/book.yml)
 [![PyPI](https://img.shields.io/pypi/v/decision-security?label=decision-security&include_prereleases)](https://pypi.org/project/decision-security/)
@@ -14,41 +14,27 @@ _Free notebooks for Monte Carlo, Bayesian updates, Survival Analysis, Causal bas
 
 ## What this is
 
-A practical path for **decision science in security**:
+A practical curriculum for **decision science in security** — 19 interactive notebooks across 4 parts:
 
-- **Monte Carlo risk bands** (heavy tails, Poisson/lognormal)  
-- **Bayesian triage & calibration** (priors → likelihoods → decisions)  
-- **Survival / time-to-event** (KM/Weibull; time-to-exploit/patch)  
-- **Causal basics** (DAG intuition, confounding, quick checks)
+| Part | Notebooks | Focus |
+|------|-----------|-------|
+| **Part 0 — Prerequisites** | 8 | Stats, distributions, Monte Carlo, decision theory, behavior, optimization, survival analysis, causal reasoning |
+| **Part 1 — Decision Frameworks** | 4 | Calculations vs decisions, Bayesian threat intel, value of information, McNamara Fallacy |
+| **Part 2 — Behavioral Traps** | 4 | Confirmation bias in IR, normalization of deviance, framing effects, advocacy vs inquiry |
+| **Part 3 — Causal & Strategic** | 3 | Control effectiveness measurement, attacker-defender game theory, supply chain risk |
 
-Everything is free: **articles, notebooks, and a small playground app** powered by the companion library.
+Everything is free: **notebooks and a small playground app** powered by the companion library.
 
 ---
 
 ## Quick links
 
-- **Docs (this site):** https://security-decision-science.github.io/security-decision-science/  
-- **Playground app:** https://github.com/security-decision-science/security-decision-labs  
-- **Library (pip):** https://github.com/security-decision-science/decision-security · PyPI → https://pypi.org/project/decision-security/  
-- **Blog (Medium):** https://medium.com/apropos-security  
+- **Hub:** https://apropos-security.com
+- **Docs (this site):** https://security-decision-science.github.io/security-decision-science/
+- **Playground app:** https://github.com/security-decision-science/security-decision-labs
+- **Library (pip):** https://github.com/security-decision-science/decision-security · PyPI → https://pypi.org/project/decision-security/
+- **Blog (Medium):** https://medium.com/apropos-security
 - **Contact:** LinkedIn (preferred)
-
----
-
-## Part 1 — Foundations
-
-These set up metrics & scaffolding reused in later modules.
-
-1. **Research mindset for security decisions**  
-   Decision statements, payoff/uncertainty, hypotheses/priors, assumptions log.
-2. **From concepts to metrics**  
-   Binary/count/rate/**time-to-event**, heavy tails, guardrails, sampling windows.
-3. **Experiment designs you can actually run**  
-   A/B, switchback, staggered; threats to validity; minimal “ship/no-ship” rule.
-
-_Read them in the left sidebar, or start at the [landing page](https://security-decision-science.github.io/security-decision-science/)._
-
-> Next: **Part 2** (Monte Carlo risk bands) → **Part 3** (Bayesian triage) → **Part 4** (Survival).
 
 ---
 
@@ -68,39 +54,51 @@ The playground app (`security-decision-labs`) imports the same library so notebo
 
 ---
 
-## Run the docs locally
+## Run the notebooks locally
 
 ```bash
-# in this repo
+git clone https://github.com/security-decision-science/security-decision-science.git
+cd security-decision-science
+python -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
+jupyter lab notebooks/
+```
+
+---
+
+## Build the docs locally
+
+```bash
 python -m venv .book && source .book/bin/activate
-python -m pip install -U pip jupyter-book
+pip install -U pip jupyter-book
 jupyter-book build docs
 open docs/_build/html/index.html
 ```
-
-Execution is off initially (`execute_notebooks: "off"` in `_config.yml`). It will be turned on later when examples are stable.
 
 ---
 
 ## Repo layout
 
 ```
+notebooks/
+  part0/          8 prerequisite notebooks
+  part1/          4 decision framework notebooks
+  part2/          4 behavioral trap notebooks
+  part3/          3 causal & strategic notebooks
 docs/
-  _config.yml
-  _toc.yml
-  index.md
-  part1-01-research-mindset.md
-  part1-02-operationalization-metrics.md
-  part1-03-experimental-design-basics.md
-.github/workflows/book.yml   # builds & deploys Jupyter Book to GitHub Pages
+  _config.yml     Jupyter Book configuration
+  _toc.yml        Table of contents (points to notebooks/)
+  index.md        Landing page
+  _static/        Logo, OG card
+.github/workflows/
+  book.yml        Builds & deploys Jupyter Book to GitHub Pages
 ```
 
 ---
 
 ## Contributing & issues
 
-- Ideas, fixes, and typos: open an **Issue** or PR.  
+- Ideas, fixes, and typos: open an **Issue** or PR.
 - For sensitive topics (no data, please), contact via **LinkedIn**.
 
 ---
-
