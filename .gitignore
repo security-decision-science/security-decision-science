@@ -55,6 +55,13 @@ cover/
 .pybuilder/
 target/
 
+# Jupyter Book build output
+_build/
+docs/_build/
+
+# macOS
+.DS_Store
+
 # Jupyter Notebook
 .ipynb_checkpoints
 

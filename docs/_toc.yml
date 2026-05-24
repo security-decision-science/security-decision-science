@@ -1,6 +1,30 @@
 format: jb-book
 root: index
-chapters:
-  - file: part1-01-research-mindset
-  - file: part1-02-operationalization-metrics
-  - file: part1-03-experimental-design-basics
+parts:
+  - caption: "Part 0 — Prerequisites"
+    chapters:
+      - file: part0/01-stats101
+      - file: part0/02-distributions
+      - file: part0/03-monte-carlo
+      - file: part0/04-decision-trees
+      - file: part0/05-behavior
+      - file: part0/06-mcda-lp
+      - file: part0/07-survival
+      - file: part0/08-causal
+  - caption: "Part 1 — Decision Frameworks"
+    chapters:
+      - file: part1/01-calculations-vs-decisions
+      - file: part1/02-bayes-threat-intel
+      - file: part1/03-value-of-information
+      - file: part1/04-mcnamara-fallacy
+  - caption: "Part 2 — Behavioral Traps"
+    chapters:
+      - file: part2/01-confirmation-bias-ir
+      - file: part2/02-normalization-of-deviance
+      - file: part2/03-framing-risk-communication
+      - file: part2/04-advocacy-vs-inquiry
+  - caption: "Part 3 — Causal & Strategic Reasoning"
+    chapters:
+      - file: part3/01-measuring-control-effectiveness
+      - file: part3/02-attacker-defender-game-theory
+      - file: part3/03-supply-chain-interdependent-security

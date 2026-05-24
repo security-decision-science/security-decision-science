@@ -24,11 +24,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
 
-      - name: Install pipx + Semgrep (pinned)
+      - name: Install Semgrep
         run: |
-          python3 -m pip install --upgrade pip setuptools               
-          python3 -m pip install semgrep==1.113.0                       
-          semgrep --version 
+          python3 -m pip install --upgrade pip setuptools
+          python3 -m pip install semgrep==1.113.0
+          semgrep --version
 
       # Note: no --error flag; job will not fail on findings.
       - name: Run Semgrep and produce SARIF
