@@ -1,11 +1,12 @@
 # Security Decision Science
 
-Part of [Apropos Security](https://apropos-security.com) — practical notebooks for turning security data into decisions. Each notebook combines explanatory prose with runnable Python code using the companion `decision-security` library.
+By [Laura Voicu](https://www.linkedin.com/in/voiculaura/) — practical notebooks for turning security data into decisions. Each notebook combines explanatory prose with runnable Python code using the companion `decision-security` library.
 
 - **Hub:** [apropos-security.com](https://apropos-security.com)
 - **Library (pip):** `decision-security`
 - **Playground:** security-decision-labs
 - **Blog (Medium):** [Apropos Security](https://medium.com/apropos-security)
+- **Related:** [Control Physiology ABM](https://github.com/security-decision-science/control-systems-agent-based-model) (agent-based FAIR-CAM simulation)
 
 ## Part 0 — Prerequisites
 

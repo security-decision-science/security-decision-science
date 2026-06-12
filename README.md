@@ -33,8 +33,9 @@ Everything is free: **notebooks and a small playground app** powered by the comp
 - **Docs (this site):** https://security-decision-science.github.io/security-decision-science/
 - **Playground app:** https://github.com/security-decision-science/security-decision-labs
 - **Library (pip):** https://github.com/security-decision-science/decision-security · PyPI → https://pypi.org/project/decision-security/
+- **Related:** [control-systems-agent-based-model](https://github.com/security-decision-science/control-systems-agent-based-model) — agent-based FAIR-CAM simulation ([paper](https://arxiv.org/abs/2605.26597))
 - **Blog (Medium):** https://medium.com/apropos-security
-- **Contact:** LinkedIn (preferred)
+- **Author:** [Laura Voicu](https://www.linkedin.com/in/voiculaura/)
 
 ---
 
