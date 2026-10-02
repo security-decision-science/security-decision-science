@@ -1,6 +1,7 @@
 # Security Decision Science
 
-_Free notebooks for Monte Carlo, Bayesian updates, Survival Analysis, Causal inference, Game Theory — turning security data into **decisions**._
+Built and maintained by Laura Voicu ([LinkedIn](https://www.linkedin.com/in/voiculaura/) · [ORCID](https://orcid.org/0009-0008-4623-2532)).
+Free notebooks for Monte Carlo, Bayesian updates, Survival Analysis, Causal inference, Game Theory — turning security data into **decisions**.
 
 [![Docs](https://github.com/security-decision-science/security-decision-science/actions/workflows/book.yml/badge.svg)](https://github.com/security-decision-science/security-decision-science/actions/workflows/book.yml)
 [![PyPI](https://img.shields.io/pypi/v/decision-security?label=decision-security&include_prereleases)](https://pypi.org/project/decision-security/)
