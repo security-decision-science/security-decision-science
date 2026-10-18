@@ -43,9 +43,10 @@ Deep dives into specific cognitive traps with realistic security scenarios.
 
 Applying causal inference and game theory to security problems.
 
-- [3.1: Measuring control effectiveness](part3/01-measuring-control-effectiveness.ipynb) — selection bias, stratified analysis, difference-in-differences, Bayesian evidence
-- [3.2: Attacker-defender game theory](part3/02-attacker-defender-game-theory.ipynb) — Nash equilibria, Colonel Blotto, moving target defense, free-rider problem
-- [3.3: Supply chain & interdependent security](part3/03-supply-chain-interdependent-security.ipynb) — compound exposure, correlated failures, cascade dynamics, vendor investment
+- [3.1: Measuring control effectiveness](part3/01-measuring-control-effectiveness.ipynb) — selection bias, stratified analysis, difference-in-differences, Bayesian evidence, real data: VCDB
+- [3.2: Attacker-defender game theory](part3/02-attacker-defender-game-theory.ipynb) — Nash equilibria, Colonel Blotto, moving target defense, free-rider problem, real data: CISA KEV
+- [3.3: Supply chain & interdependent security](part3/03-supply-chain-interdependent-security.ipynb) — compound exposure, correlated failures, cascade dynamics, vendor investment, real data: deps.dev dependency graph
+- [3.4: Overdispersion on real data](part3/04-overdispersion-real-data.ipynb) — Poisson dispersion test on CISA KEV and Ransomware.live, trend vs clustering, negative binomial
 
 ## Use the library
 

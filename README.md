@@ -15,14 +15,14 @@ Free notebooks for Monte Carlo, Bayesian updates, Survival Analysis, Causal infe
 
 ## What this is
 
-A practical curriculum for **decision science in security** — 19 interactive notebooks across 4 parts:
+A practical curriculum for **decision science in security** — 20 interactive notebooks across 4 parts:
 
 | Part | Notebooks | Focus |
 |------|-----------|-------|
 | **Part 0 — Prerequisites** | 8 | Stats, distributions, Monte Carlo, decision theory, behavior, optimization, survival analysis, causal reasoning |
 | **Part 1 — Decision Frameworks** | 4 | Calculations vs decisions, Bayesian threat intel, value of information, McNamara Fallacy |
 | **Part 2 — Behavioral Traps** | 4 | Confirmation bias in IR, normalization of deviance, framing effects, advocacy vs inquiry |
-| **Part 3 — Causal & Strategic** | 3 | Control effectiveness measurement, attacker-defender game theory, supply chain risk |
+| **Part 3 — Causal & Strategic** | 4 | Control effectiveness measurement, attacker-defender game theory, supply chain risk, overdispersion on real data |
 
 Everything is free: **notebooks and a small playground app** powered by the companion library.
 
@@ -43,7 +43,7 @@ Everything is free: **notebooks and a small playground app** powered by the comp
 ## Use the library (pip)
 
 ```bash
-pip install --pre decision-security
+pip install decision-security
 ```
 
 ```python
@@ -86,7 +86,7 @@ notebooks/
   part0/          8 prerequisite notebooks
   part1/          4 decision framework notebooks
   part2/          4 behavioral trap notebooks
-  part3/          3 causal & strategic notebooks
+  part3/          4 causal & strategic notebooks
 docs/
   _config.yml     Jupyter Book configuration
   _toc.yml        Table of contents (points to notebooks/)

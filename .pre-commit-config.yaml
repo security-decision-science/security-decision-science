@@ -1,13 +1,5 @@
 # .pre-commit-config.yaml
 repos:
-  - repo: https://github.com/kynan/nbstripout
-    rev: 0.7.1
-    hooks:
-      # modifies files → only at local pre-commit
-      - id: nbstripout
-        stages: [pre-commit]
-        files: \.ipynb$
-
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.6.0
     hooks:
