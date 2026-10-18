@@ -5,8 +5,9 @@ graph (CC BY 4.0) ship as committed snapshots in data/ (see data/README.md);
 pass refresh=True to download the current data instead.
 
 Ransomware.live is always downloaded live and never committed: its terms
-(https://www.ransomware.live/t&c) forbid republishing the raw data, the free
-API is for personal, non-commercial use only and is rate limited. Responses
+(https://www.ransomware.live/t&c) forbid republishing the raw data; the data
+is free for non-commercial use (personal research, academic, open source), and
+the anonymous API is rate limited to 1 request per minute. Responses
 are cached in .cache/ (gitignored) so reruns don't hit the API again.
 """
 import io
@@ -119,7 +120,8 @@ def ransomware_monthly_counts(months):
     """Victims posted per month on Ransomware.live (live API, cached locally).
 
     months: a pandas PeriodIndex with monthly frequency.
-    Source: Ransomware.live. Personal, non-commercial use only.
+    Source: Ransomware.live. Free for non-commercial use (personal research,
+    academic, open source); see https://www.ransomware.live/t&c
     """
     CACHE.mkdir(exist_ok=True)
     counts = []
@@ -128,6 +130,6 @@ def ransomware_monthly_counts(months):
         if not path.exists():
             r = _get(f"https://api.ransomware.live/v2/victims/{m.year}/{m.month:02d}")
             path.write_text(r.text)
-            time.sleep(0.5)  # be polite to the free API
+            time.sleep(60)  # the anonymous v2 API allows 1 request per minute per endpoint
         counts.append(len(json.loads(path.read_text())))
     return pd.Series(counts, index=months)

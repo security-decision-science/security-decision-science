@@ -14,5 +14,5 @@ Snapshots taken 18 October 2026.
 
 **Not stored here:** Ransomware.live data (used in 3.4). Its
 [terms](https://www.ransomware.live/t&c) forbid republishing the raw data; the
-free API is for personal, non-commercial use only. The notebook downloads it
+data is free for non-commercial use (personal research, academic, open source). The notebook downloads it
 live and caches it in `../.cache/` (gitignored). Source: Ransomware.live.

@@ -6,7 +6,7 @@ By [Laura Voicu](https://www.linkedin.com/in/voiculaura/) — practical notebook
 - **Library (pip):** `decision-security`
 - **Playground:** security-decision-labs
 - **Blog (Medium):** [Apropos Security](https://medium.com/apropos-security)
-- **Related:** [Control Physiology ABM](https://github.com/security-decision-science/control-systems-agent-based-model) (agent-based FAIR-CAM simulation)
+- **Related:** [Control Physiology ABM](https://github.com/security-decision-science/security-decision-labs/blob/main/tools/control-systems-agent-based-model/) (agent-based FAIR-CAM simulation)
 
 ## Part 0 — Prerequisites
 
@@ -45,13 +45,13 @@ Applying causal inference and game theory to security problems.
 
 - [3.1: Measuring control effectiveness](part3/01-measuring-control-effectiveness.ipynb) — selection bias, stratified analysis, difference-in-differences, Bayesian evidence, real data: VCDB
 - [3.2: Attacker-defender game theory](part3/02-attacker-defender-game-theory.ipynb) — Nash equilibria, Colonel Blotto, moving target defense, free-rider problem, real data: CISA KEV
-- [3.3: Supply chain & interdependent security](part3/03-supply-chain-interdependent-security.ipynb) — compound exposure, correlated failures, cascade dynamics, vendor investment, real data: deps.dev dependency graph
-- [3.4: Overdispersion on real data](part3/04-overdispersion-real-data.ipynb) — Poisson dispersion test on CISA KEV and Ransomware.live, trend vs clustering, negative binomial
+- [3.3: Supply chain & interdependent security](part3/03-supply-chain-interdependent-security.ipynb) — compound exposure, correlated failures, cascade dynamics, whether vendor assessments can be shown to work, vendor investment, real data: deps.dev dependency graph
+- [3.4: Overdispersion on real data](part3/04-overdispersion-real-data.ipynb) — Poisson dispersion test on CISA KEV and Ransomware.live, trend vs clustering, level shifts, negative binomial
 
 ## Use the library
 
 ```bash
-pip install --pre decision-security
+pip install decision-security
 ```
 
 ```python

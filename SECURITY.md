@@ -4,4 +4,4 @@
 
 Please **do not** create a public GitHub issue for security reports.
 
-Use **Security → Report a vulnerability** (GitHub private advisories/ ["Report a Vulnerability"](https://github.com/lauravoicu/pygoat-github-actions/security/advisories/new) tab).
+Use **Security → Report a vulnerability** (GitHub private advisories/ ["Report a Vulnerability"](https://github.com/security-decision-science/security-decision-science/security/advisories/new) tab).
