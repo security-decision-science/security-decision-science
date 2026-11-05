@@ -5,10 +5,12 @@ on:
     branches: [ "main" ]
     paths:
       - '**/*.py'
+      - '.github/workflows/**'
   pull_request:
     branches: [ "main" ]
     paths:
       - '**/*.py'
+      - '.github/workflows/**'
   schedule:
     - cron: "0 3 * * 1" # Mondays 03:00 UTC
   workflow_dispatch: {}
@@ -18,10 +20,14 @@ permissions:
 
 jobs:
   analyze:
-    name: CodeQL (Python)
+    name: CodeQL (${{ matrix.language }})
     runs-on: ubuntu-latest
     permissions:
       security-events: write
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ python, actions ]
 
     steps:
       - name: Harden runner
@@ -33,10 +39,12 @@ jobs:
         uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
 
       - id: detect
-        name: Detect Python sources
+        name: Detect sources
         shell: bash
+        env:
+          LANG_NAME: ${{ matrix.language }}
         run: |
-          if git ls-files '*.py' | grep -q .; then
+          if [ "$LANG_NAME" = "actions" ] || git ls-files '*.py' | grep -q .; then
             echo "has_py=true" >> "$GITHUB_OUTPUT"
           else
             echo "has_py=false" >> "$GITHUB_OUTPUT"
@@ -46,15 +54,15 @@ jobs:
         if: steps.detect.outputs.has_py == 'true'
         uses: github/codeql-action/init@f443b600d91635bebf5b0d9ebc620189c0d6fba5 # v4.30.8
         with:
-          languages: python
+          languages: ${{ matrix.language }}
           queries: +security-extended
 
       - name: Perform CodeQL Analysis
         if: steps.detect.outputs.has_py == 'true'
         uses: github/codeql-action/analyze@f443b600d91635bebf5b0d9ebc620189c0d6fba5 # v4.30.8
         with:
-          category: "/language:python"
+          category: "/language:${{ matrix.language }}"
 
-      - name: Skip (no Python files)
+      - name: Skip (no sources)
         if: steps.detect.outputs.has_py != 'true'
-        run: echo "No Python files found; skipping CodeQL."
+        run: echo "No sources found; skipping CodeQL."
