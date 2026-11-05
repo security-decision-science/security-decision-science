@@ -15,4 +15,4 @@ jobs:
       - name: Check links in docs
         uses: lycheeverse/lychee-action@885c65f3dc543b57c898c8099f4e08c8afd178a2 # v2.6.1 commit
         with:
-          args: --no-progress --require-https --max-concurrency 8 docs
+          args: --no-progress --require-https --max-concurrency 8 docs README.md CONTRIBUTING.md notebooks/part3/data/README.md

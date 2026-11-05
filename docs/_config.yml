@@ -18,15 +18,6 @@ html:
   logo: _static/logo-180.png
   extra_navbar: '<a href="https://apropos-security.com">Apropos Security</a>'
   extra_footer: 'Part of <a href="https://apropos-security.com">Apropos Security</a> · <a href="https://medium.com/apropos-security">Blog</a> · <a href="https://www.linkedin.com/in/voiculaura/">LinkedIn</a>'
-  extra_head: |
-    <meta name="description" content="Free notebooks, articles, and a playground app for Monte Carlo, Bayesian updates, Survival analysis, and causal basics in security." />
-    <meta name="keywords" content="security, risk, decision science, monte carlo, bayes, survival analysis, causal inference" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Security Decision Science" />
-    <meta name="twitter:description" content="Turn security data into decisions: Monte Carlo, Bayes, Survival, Causal." />
-    <meta property="og:title" content="Security Decision Science" />
-    <meta property="og:description" content="Turn security data into decisions: Monte Carlo, Bayes, Survival, Causal." />
-    <link rel="canonical" href="https://security-decision-science.github.io/security-decision-science/" />
 
 sphinx:
   extra_extensions:
@@ -39,3 +30,7 @@ sphinx:
     ogp_description_length: 200
     ogp_image: "https://security-decision-science.github.io/security-decision-science/_static/og-card.png"
     ogp_type: "website"
+    html_extra_path: ["robots.txt"]
+    ogp_custom_meta_tags:
+      - '<meta name="keywords" content="security, risk, decision science, monte carlo, bayes, survival analysis, causal inference, game theory" />'
+      - '<meta name="twitter:card" content="summary_large_image" />'

@@ -15,6 +15,5 @@ keywords:
   - security decision science
 repository-code: "https://github.com/security-decision-science/security-decision-science"
 license: MIT
-version: "1.0.0"
-date-released: "2026-05-24"
-doi: ""
+version: "1.1.0"
+date-released: "2026-11-05"

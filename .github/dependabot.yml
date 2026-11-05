@@ -8,14 +8,6 @@ updates:
     open-pull-requests-limit: 5
     rebase-strategy: "auto"
 
-  # Python (docs/)
-  - package-ecosystem: "pip"
-    directory: "/docs"
-    schedule:
-      interval: "weekly"
-    open-pull-requests-limit: 5
-    rebase-strategy: "auto"
-
   # GitHub Actions
   - package-ecosystem: "github-actions"
     directory: "/"

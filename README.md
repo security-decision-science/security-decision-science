@@ -15,16 +15,16 @@ Free notebooks for Monte Carlo, Bayesian updates, Survival Analysis, Causal infe
 
 ## What this is
 
-A practical curriculum for **decision science in security** — 20 interactive notebooks across 4 parts:
+A practical curriculum for **decision science in security** — 21 interactive notebooks across 4 parts:
 
-| Part | Notebooks | Focus |
-|------|-----------|-------|
-| **Part 0 — Prerequisites** | 8 | Stats, distributions, Monte Carlo, decision theory, behavior, optimization, survival analysis, causal reasoning |
-| **Part 1 — Decision Frameworks** | 4 | Calculations vs decisions, Bayesian threat intel, value of information, McNamara Fallacy |
-| **Part 2 — Behavioral Traps** | 4 | Confirmation bias in IR, normalization of deviance, framing effects, advocacy vs inquiry |
-| **Part 3 — Causal & Strategic** | 4 | Control effectiveness measurement, attacker-defender game theory, supply chain risk, overdispersion on real data |
+| Part | Notebooks | Focus                                                                                                                                |
+|------|-----------|--------------------------------------------------------------------------------------------------------------------------------------|
+| **Part 0 — Prerequisites** | 8 | Stats, distributions, Monte Carlo, decision theory, behavior, optimization, survival analysis, causal reasoning                      |
+| **Part 1 — Decision Frameworks** | 4 | Calculations vs decisions, Bayesian thinking, value of information, McNamara Fallacy                                                 |
+| **Part 2 — Behavioral Traps** | 4 | Confirmation bias, normalization of deviance, framing effects, advocacy vs inquiry                                                   |
+| **Part 3 — Causal & Strategic Reasoning** | 5 | Control effectiveness measurement, attacker-defender game theory, supply chain risk, overdispersion on real data, backlog triage by hazard |
 
-Everything is free: **notebooks and a small playground app** powered by the companion library.
+Everything is free: **notebooks and a set of open tools**.
 
 ---
 
@@ -32,9 +32,9 @@ Everything is free: **notebooks and a small playground app** powered by the comp
 
 - **Hub:** https://apropos-security.com
 - **Docs (this site):** https://security-decision-science.github.io/security-decision-science/
-- **Playground app:** https://github.com/security-decision-science/security-decision-labs
+- **Tools:** https://github.com/security-decision-science/security-decision-labs
 - **Library (pip):** https://github.com/security-decision-science/decision-security · PyPI → https://pypi.org/project/decision-security/
-- **Related:** [control-systems-agent-based-model](https://github.com/security-decision-science/security-decision-labs/blob/main/tools/control-systems-agent-based-model/) — agent-based FAIR-CAM simulation ([paper](https://arxiv.org/abs/2605.26597))
+- **Related:** [Agent-based FAIR-CAM simulation](https://github.com/security-decision-science/security-decision-labs/blob/main/tools/control-systems-agent-based-model/) ([paper](https://arxiv.org/abs/2605.26597))
 - **Blog (Medium):** https://medium.com/apropos-security
 - **Author:** [Laura Voicu](https://www.linkedin.com/in/voiculaura/)
 
@@ -52,11 +52,11 @@ x = sample("poisson", 10, lam=1.2)
 print(x)
 ```
 
-The playground app (`security-decision-labs`) imports the same library so notebooks ↔ app stay consistent.
-
 ---
 
 ## Run the notebooks locally
+
+Python 3.9+.
 
 ```bash
 git clone https://github.com/security-decision-science/security-decision-science.git
@@ -72,7 +72,8 @@ jupyter lab notebooks/
 
 ```bash
 python -m venv .book && source .book/bin/activate
-pip install -U pip jupyter-book
+pip install -U pip
+pip install -r requirements-docs.txt
 jupyter-book build docs
 open docs/_build/html/index.html
 ```
@@ -86,7 +87,7 @@ notebooks/
   part0/          8 prerequisite notebooks
   part1/          4 decision framework notebooks
   part2/          4 behavioral trap notebooks
-  part3/          4 causal & strategic notebooks
+  part3/          5 causal & strategic notebooks
   part3/data/     public data snapshots used by Part 3 (sources and licences in its README)
 docs/
   _config.yml     Jupyter Book configuration
@@ -95,6 +96,11 @@ docs/
   _static/        Logo, OG card
 .github/workflows/
   book.yml        Builds & deploys Jupyter Book to GitHub Pages
+  ci.yml          pre-commit checks
+  links.yml       Link check (lychee)
+  codeql.yml, sast.yml, scorecard.yml   CodeQL, Semgrep, OpenSSF Scorecard
+requirements.txt        Packages to run the notebooks
+requirements-docs.txt   Packages to build the docs (same versions as book.yml)
 ```
 
 ---
@@ -103,5 +109,11 @@ docs/
 
 - Ideas, fixes, and typos: open an **Issue** or PR.
 - For sensitive topics (no data, please), contact via **LinkedIn**.
+
+---
+
+## License
+
+Code and text: MIT ([LICENSE](LICENSE)). Files in `notebooks/part3/data/` carry their source licences (see [its README](notebooks/part3/data/README.md)).
 
 ---

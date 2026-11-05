@@ -9,7 +9,8 @@ This repo hosts the notebooks and the Jupyter Book (docs site). Most content liv
 3. (Optional) Preview locally:
    ```bash
    python -m venv .book && source .book/bin/activate
-   python -m pip install -U pip "jupyter-book==1.0.0"
+   python -m pip install -U pip
+   python -m pip install -r requirements-docs.txt
    jupyter-book build docs
    open docs/_build/html/index.html
    ```

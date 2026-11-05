@@ -33,10 +33,10 @@ body:
     attributes:
       label: Where does it fit?
       options:
-        - Part 1 (Foundations)
-        - Part 2 (Monte Carlo)
-        - Part 3 (Bayes)
-        - Part 4 (Survival)
+        - Part 0 (Prerequisites)
+        - Part 1 (Decision Frameworks)
+        - Part 2 (Behavioral Traps)
+        - Part 3 (Causal & Strategic Reasoning)
         - New Part
   - type: textarea
     id: extra

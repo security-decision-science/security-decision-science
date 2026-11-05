@@ -4,9 +4,9 @@ By [Laura Voicu](https://www.linkedin.com/in/voiculaura/) — practical notebook
 
 - **Hub:** [apropos-security.com](https://apropos-security.com)
 - **Library (pip):** `decision-security`
-- **Playground:** security-decision-labs
+- **Tools:** [security-decision-labs](https://github.com/security-decision-science/security-decision-labs)
 - **Blog (Medium):** [Apropos Security](https://medium.com/apropos-security)
-- **Related:** [Control Physiology ABM](https://github.com/security-decision-science/security-decision-labs/blob/main/tools/control-systems-agent-based-model/) (agent-based FAIR-CAM simulation)
+- **Related:** [Agent-based FAIR-CAM simulation](https://github.com/security-decision-science/security-decision-labs/blob/main/tools/control-systems-agent-based-model/) ([paper](https://arxiv.org/abs/2605.26597))
 
 ## Part 0 — Prerequisites
 
@@ -47,6 +47,7 @@ Applying causal inference and game theory to security problems.
 - [3.2: Attacker-defender game theory](part3/02-attacker-defender-game-theory.ipynb) — Nash equilibria, Colonel Blotto, moving target defense, free-rider problem, real data: CISA KEV
 - [3.3: Supply chain & interdependent security](part3/03-supply-chain-interdependent-security.ipynb) — compound exposure, correlated failures, cascade dynamics, whether vendor assessments can be shown to work, vendor investment, real data: deps.dev dependency graph
 - [3.4: Overdispersion on real data](part3/04-overdispersion-real-data.ipynb) — Poisson dispersion test on CISA KEV and Ransomware.live, trend vs clustering, level shifts, negative binomial
+- [3.5: Backlog triage by hazard](part3/05-backlog-triage-by-hazard.ipynb) — severity vs likelihood rankings, hazard additivity, how much exploitation likelihood each policy removes, real data: EPSS + CVE List + CISA KEV
 
 ## Use the library
 
