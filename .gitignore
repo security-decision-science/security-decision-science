@@ -124,6 +124,6 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 
-# Part 3 EPSS snapshot: large and rebuildable from public sources (see notebooks/part3/data/README.md)
-notebooks/part3/data/cve_epss_snapshot.csv.gz
-notebooks/part3/data/cve_epss_snapshot.meta.json
+# Part 3 third-party data: downloaded on first use, never committed (see notebooks/part3/data/README.md)
+notebooks/part3/data/*
+!notebooks/part3/data/README.md

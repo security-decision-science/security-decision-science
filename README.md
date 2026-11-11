@@ -88,7 +88,7 @@ notebooks/
   part1/          4 decision framework notebooks
   part2/          4 behavioral trap notebooks
   part3/          5 causal & strategic notebooks
-  part3/data/     public data snapshots used by Part 3 (sources and licences in its README)
+  part3/data/     Part 3 data, downloaded on first run (sources and licences in its README)
 docs/
   _config.yml     Jupyter Book configuration
   _toc.yml        Table of contents (points to notebooks/)
@@ -114,6 +114,6 @@ requirements-docs.txt   Packages to build the docs (same versions as book.yml)
 
 ## License
 
-Code and text: MIT ([LICENSE](LICENSE)). Files in `notebooks/part3/data/` carry their source licences (see [its README](notebooks/part3/data/README.md)).
+Code and text: MIT ([LICENSE](LICENSE)). No third-party data is committed; Part 3 downloads its public data on first run, under the source licences listed in [its README](notebooks/part3/data/README.md).
 
 ---

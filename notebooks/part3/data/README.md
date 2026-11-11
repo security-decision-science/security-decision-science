@@ -1,24 +1,28 @@
-# Data snapshots for Part 3
+# Data for Part 3
 
-Committed snapshots keep the notebooks reproducible. Each loader in `../_data.py`
-takes `refresh=True` to download the current data instead, and has a
-`save_..._snapshot()` function to update the file here.
+No third-party data is committed to this repository. Each loader in
+`../_data.py` downloads its source on first use and saves a local snapshot in
+this folder (gitignored), so later runs reuse the same data. The first run of
+Part 3 therefore needs network access. `downloads.json` records the date each
+snapshot was downloaded; pass `refresh=True` to a loader to replace its
+snapshot with the current data. Sources revise their history, so a later
+download can give slightly different numbers than the stored notebook outputs.
 
 | File | Source | Licence | Used in |
 |---|---|---|---|
 | `kev_snapshot.csv` | [CISA Known Exploited Vulnerabilities catalog](https://www.cisa.gov/known-exploited-vulnerabilities-catalog), 5 columns | Public domain (US government work) | 3.2, 3.4 (and 3.5's rebuild) |
-| `vcdb_snapshot.csv` | [VERIS Community Database](https://github.com/vz-risk/VCDB), one row per VCDB record (a few `incident_id`s repeat), 7 derived columns | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/); this derived file is shared under the same licence | 3.1 |
+| `vcdb_snapshot.csv` | [VERIS Community Database](https://github.com/vz-risk/VCDB), one row per VCDB record (a few `incident_id`s repeat), 7 derived columns | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) | 3.1 |
 | `deps_npm_react-scripts_5.0.1_*.csv` | [deps.dev](https://deps.dev) resolved dependency graph of npm `react-scripts` 5.0.1 | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) (deps.dev generated data) | 3.3 |
 
-Snapshots taken 18 October 2026.
+The stored notebook outputs were produced with snapshots downloaded on
+18 October 2026.
 
-**Not committed:**
+**Built or downloaded differently:**
 
 - **EPSS/CVSS/KEV join** (`cve_epss_snapshot.csv.gz`, used in 3.5). Written to
-  this folder on first run (gitignored) by `load_epss()` / `save_epss_snapshot()`
-  from FIRST EPSS scores, the CVE List (cvelistV5) and `kev_snapshot.csv`. Not
-  committed because it is large and regenerated from public sources, so 3.5's
-  first run on a fresh clone needs network access, the `git` CLI and disk space:
+  this folder on first run by `load_epss()` / `save_epss_snapshot()`
+  from FIRST EPSS scores, the CVE List (cvelistV5) and `kev_snapshot.csv`.
+  3.5's first run on a fresh clone needs the `git` CLI and disk space as well:
   it downloads EPSS and sparse-clones the `cves/` tree of cvelistV5 into
   `../.cache/`. `year` is the year in the CVE ID, not the publication date;
   `cvss_base` is the CNA container's CVSS v3.1, else v3.0, else v2.0 score (no
